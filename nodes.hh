@@ -35,9 +35,9 @@ public:
 
 class nodes
 {
-    world *W;
     std::vector<node> N;
 public:
+    world *W;
     int connections=0;
 
     void generateNodes(int amount, float R); // amount ilość nodeów do generacji, R- odległość łącząca node'y

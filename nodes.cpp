@@ -45,5 +45,10 @@ int nodes::connectNode(node &connectedNode,float R)
 
 bool nodes::nodeColissionCheck(node checkedNode)
 {
+    for(int i=0; i<W->obstacles.size();i++)
+    {
+        if(!(W->obstacles[i]->checkCollision(checkedNode.pos[0],checkedNode.pos[1])));
+            return false;
+    }
     return true;
 }
