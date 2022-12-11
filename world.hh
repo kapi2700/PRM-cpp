@@ -1,6 +1,10 @@
 #include <vector>
+#include <fstream>
+
 #include "recObstacle.hh"
 #include "cirObstacle.hh"
+
+using namespace std;
 
 class world
 {

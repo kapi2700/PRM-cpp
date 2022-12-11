@@ -1,5 +1,5 @@
 #include "obstacle.hh"
-class recObstacle:obstacle
+class recObstacle: public obstacle
 {
     float posX[4];
     float posY[4];

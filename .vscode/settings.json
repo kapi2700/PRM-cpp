@@ -57,7 +57,8 @@
     "memory_resource": "cpp",
     "numeric": "cpp",
     "string_view": "cpp",
-    "numbers": "cpp"
+    "numbers": "cpp",
+    "fstream": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "C:/MinGW/MinGW/bin/g++.exe",
   "C_Cpp_Runner.cppCompilerPath": "g++",

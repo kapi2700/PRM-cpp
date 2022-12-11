@@ -1,6 +1,7 @@
+#pragma once
 #include "obstacle.hh"
 
-class cirObstacle
+class cirObstacle: public obstacle
 {
     float posX;
     float posY;

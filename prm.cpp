@@ -2,12 +2,6 @@
 
 #include "nodes.hh"
 
-// int PRM()
-// {
-    
-//     return 0;
-// }
-
 
 int main()
 {
@@ -53,7 +47,8 @@ int main()
             std::cin>>recH;
             recObstacle* tmprecObs;
             tmprecObs=new recObstacle(recX,recY,recL,recH);
-            Nodes.W->obstacles.push_back((obstacle*)tmprecObs);
+            Nodes.W->obstacles.push_back(tmprecObs);
+            break;
         case 2:
             float cirX, cirY, cirR;
             std::cout<<"Circle X: ";
@@ -64,18 +59,19 @@ int main()
             std::cin>>cirR;
             cirObstacle* tmpcirObs;
             tmpcirObs=new cirObstacle(cirX, cirY, cirR);
-            Nodes.W->obstacles.push_back((obstacle*)tmpcirObs);
-        default:
-            std::cout<<"Wrong number!\n";
+            Nodes.W->obstacles.push_back(tmpcirObs);
             break;
+        default:
+            std::cout<<"Wrong option\n";
         }
 
     }
     // for(int i=0; i<10; i++)
     // {
         //std::cout<<i+1<<" iteration\n";
-        Nodes.generateNodes(nodesAmount,nodeDist);
-        std::cout<< "Created " << Nodes.connections<< " connections.\n";
+    Nodes.generateNodes(nodesAmount,nodeDist);
+    std::cout<< "Created " << Nodes.connections<< " connections.\n";
+    Nodes.toFile();
     //}
-    return 0;
+    //return 0;
 }

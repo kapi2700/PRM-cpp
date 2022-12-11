@@ -1,3 +1,4 @@
+#pragma once
 #include "world.hh"
 #include <stdlib.h>
 #include <time.h>
@@ -10,6 +11,8 @@ struct node
     std::vector<node*> connectedNodes;
     int connections=0;
 public:
+    bool wasChecked=false;
+    bool isTheRoute=false;
     node()
     {
         pos[0] = 0.0;
@@ -55,5 +58,34 @@ public:
         delete W;
     }
     
-    
+    void toFile()
+    {
+        ofstream save;
+        save.open("out.txt");
+        for(int i=0; i<N.size();i++)
+        {
+            save<<N[i].pos[0]<<"   "<<N[i].pos[1]<<endl;
+            save<<endl<<endl;
+            // for(int j=N[i].connectedNodes.size()-1; j>=0;j--)
+            // {
+            //     if(N[i].connectedNodes[j]->pos[0]>W->maxGridX+2)
+            //     {
+            //         N[i].connectedNodes.erase(N[i].connectedNodes.begin()+j);
+            //     }
+            //     else
+            //     {
+            //         if(N[i].connectedNodes[j]->pos[1]>W->maxGridY+2)
+            //         {
+            //             N[i].connectedNodes.erase(N[i].connectedNodes.begin()+j);
+            //         }
+            //         else
+            //         {
+            //         save<<N[i].pos[0]<<"   "<<N[i].pos[1]<<endl;
+            //         save<<N[i].connectedNodes[j]->pos[0]<<"   "<<N[i].connectedNodes[j]->pos[1]<<endl<<endl;
+            //         }
+            //     }
+
+            // }
+        }
+    }
 };

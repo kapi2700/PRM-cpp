@@ -2,18 +2,19 @@
 
 void nodes::generateNodes(int amount, float R)
 {
+    long long unsigned int amo=amount;
     srand(time(NULL));
     node tmpNode;
-    float randomNumber;
-    while(N.size()<amount)
+    int randomNumber;
+    while(N.size()<amo)
     {
         float x=0.0;
         float y=0.0;
 
         randomNumber=rand();
-        x=(int)randomNumber%((int)W->maxGridX*10);
+        x=((float)(randomNumber%((int)W->maxGridX*10))/10.0);
         randomNumber=rand();
-        y=(int)randomNumber%((int)W->maxGridY*10);
+        y=((float)(randomNumber%((int)W->maxGridY*10))/10.0);
 
         tmpNode=node(x,y);
 
@@ -27,7 +28,7 @@ void nodes::generateNodes(int amount, float R)
 
 int nodes::connectNode(node &connectedNode,float R)
 {
-    for(int i=0; i<(N.size()-1); i++)
+    for(long long unsigned int i=0; i<(N.size()-1); i++)
     {
         if(connectedNode.calcdistance(N[i])<R)
         {
@@ -39,15 +40,17 @@ int nodes::connectNode(node &connectedNode,float R)
             connections++;
         }
     }
+
+    return 0;
     //std::cout<<"Connected to " <<N[N.size()-1].connections << " nodes.\n";
 }
 
 
 bool nodes::nodeColissionCheck(node checkedNode)
 {
-    for(int i=0; i<W->obstacles.size();i++)
+    for(long long unsigned int i=0; i<W->obstacles.size();i++)
     {
-        if(!(W->obstacles[i]->checkCollision(checkedNode.pos[0],checkedNode.pos[1])));
+        if(!(W->obstacles[i]->checkCollision(checkedNode.pos[0],checkedNode.pos[1])))
             return false;
     }
     return true;
